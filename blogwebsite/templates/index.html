@@ -1,0 +1,68 @@
+{% extends  'base.html' %}
+
+{% block content %}
+
+<body>
+    
+    <div class="centered">
+
+        &nbsp;
+        <h1>Publish your passions, your way</h1>
+
+        <h3>Create a unique and beautiful blog easily.</h3>
+
+        <a type="button" href ='{% url "signin_page" %}' class="btn btn-primary">Create Your Blog</a>
+
+    </div>
+
+    <hr>
+
+
+    <table class="table table-hover table-bordered">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th scope="col"> S.No. </th>
+                <th scope="col"> Blog Title </th>
+                <th scope="col"> Blog Description </th>
+               
+
+                <th scope="col"> View Blog</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if data %}
+
+            {% for data in data %}
+
+            <tr>
+
+                <td> {{forloop.counter}} </td>
+                <td> {{data.title}} </td>
+                <td> {{data.description}} </td>
+                
+                <td> <a href="{% url 'single_blog_view' data.id %}">View</a> </td>
+                
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+        </tbody>
+
+    </table>
+
+
+
+
+  
+</body>
+
+{% endblock %}

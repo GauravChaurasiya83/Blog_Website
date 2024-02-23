@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class = "container mt-5">
+            
+
+    <form method = "post" class = "col-80 mx-auto"  >
+                
+        {% csrf_token %}
+    
+        <h2>Update Your Blog</h2>
+         
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"> Title </label>
+          <input  name="title"  value="{{data.title}}" type="text" class="form-control" >
+        </div>
+        
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Description</label>
+          <textarea type = "text" class="form-control"  name = "description" >{{data.description}}</textarea>
+        </div>
+        
+        
+        <button type="submit" class="btn btn-success">Update</button>
+      </form>
+    
+   </div>
+
+
+{% endblock %}
