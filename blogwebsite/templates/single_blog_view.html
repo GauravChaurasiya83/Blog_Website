@@ -2,6 +2,10 @@
 
 {% block content %}
 
+current user: {{user.id}}
+
+Blog author : {{data.user.id}}
+
 <div class='card'>
 
     &nbsp;
@@ -34,10 +38,11 @@
 
 <a href="{% url 'index' %}" class="btn btn-primary">Return</a>
 &nbsp;
-<a href="{% url 'update_blog' data.id %}" class="btn btn-info">Update</a>
-&nbsp;
-<a href="{% url 'delete_blog' data.id %}" class="btn btn-danger">Delete</a>
-
+{% if user.id == data.user.id %}
+    <a href="{% url 'update_blog' data.id %}" class="btn btn-info">Update</a>
+    &nbsp;
+    <a href="{% url 'delete_blog' data.id %}" class="btn btn-danger">Delete</a>
+{% endif %}
 
 
 

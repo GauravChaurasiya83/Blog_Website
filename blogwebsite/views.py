@@ -25,10 +25,13 @@ def createBlog(request):
 
         title = data.get('title')
         description = data.get('description')
+        
 
         Blog.objects.create(
+                user = request.user,
                 title = title,
                 description = description
+                
         )
 
         return redirect ('index')
@@ -118,7 +121,7 @@ def login_page(request):
             return redirect('login_page')
         else:
             login(request,user)
-            return redirect('createBlog')
+            return redirect('index')
 
 
     return render(request,'login_page.html')

@@ -11,7 +11,7 @@
 
         <h3>Create a unique and beautiful blog easily.</h3>
 
-        <a type="button" href ='{% url "signin_page" %}' class="btn btn-primary">Create Your Blog</a>
+        <a type="button" href ='{% url "createBlog" %}' class="btn btn-primary">Create Your Blog</a>
 
     </div>
 
@@ -36,6 +36,8 @@
         </thead>
 
         <tbody>
+
+            {{blog.user}}
 
         {% if data %}
 

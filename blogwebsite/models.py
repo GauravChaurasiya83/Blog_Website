@@ -14,6 +14,8 @@ class Blog(models.Model):
     title = models.CharField(max_length = 100,default = False)
     description = models.TextField(default = False)
 
+    # auther = models.CharField(max_length = 100,default = False)
+
     def __str__(self):
 
         return self.title
